@@ -2,39 +2,101 @@
 <html>
   <head>
     <title>eDisplay Basic UI</title>
-      <!-- 윈도우 창 타이틀 -->
+      <!-- Holy grail layout(성배 레이아웃)을 통한 화면 배치 -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial scale=1.0">
         <!-- 모바일 화면에서 최적화 -->
     <style>
       .container{
         background-color: powderblue;
-        width: 1024px;
-        height: 768px;
+        border: 2px solid gray;
+        padding: 10px;
+        width: 1024px; height: 768px;
+        /* 우선 1024*768에 맞춰보지만 향후 해상도의 변화를 고려해야 함 */
+        /* 한 가지 고정 해상도 갖는 Device에서 운용하는 경우와 여러 Device에서 표출하고 싶을 때를 고려해야 함  */
         display: flex;
         /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
         flex-direction: column;
         /* 기본적으로 row */
-              }
-      .item{
-        background-color: tomato;
-        color: white;
-        border: 1px solid white;
-        flex-grow:0;
-        /* 화면을 꽉 채우려면 "1"을 입력 */
+        }
+      header{
+        background-color: yellow;
+        border: 2px solid white;
+        padding: 10px;
+        width: auto ; height: auto;
+        display: flex;
+        /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+        flex-direction: row;
+        /* 기본적으로 row */
+        flex-grow: 3;
       }
-      .item:nth-child(4){
-        flex-basis: 200px;
+      header #weather, #logo, #datetime{
+        text-align: center;
+        background-color: white;
+        border: 1px solid gray;
+        padding: 2px;
+        width: auto ; height: auto;
+        flex-grow: 1;
+      }
+      header #logo{
+        /* flex-basis: 100px; */
+        flex-grow: 3;
+      }
+      header #weather, #datetime{
+        /* flex-basis: 100px; */
+        /* flex-shrink: 2; */
+      }
+      main{
+        background-color: green;
+        border: 2px solid white;
+        padding: 10px;
+        width: auto ; height: auto;
+        flex-grow: 16;
+      }
+      footer{
+        text-align: left;
+        background-color: gray;
+        border: 2px solid white;
+        padding: 10px;
+        width: auto ; height: auto;
+        display: flex;
+        /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+        flex-direction: row;
+        /* 기본적으로 row */
+        flex-grow: 1;
+      }
+      footer #newslogo{
+        text-align: center;
+        background-color: white;
+        border: 1px solid red;
+        padding: 2px;
+        width: auto ; height: auto;
+        flex-grow: 1;
+      }
+      footer #onelinenews{
+        text-align: center;
+        background-color: white;
+        border: 1px solid red;
+        padding: 2px;
+        width: auto ; height: auto;
+        flex-grow: 10;
       }
     </style>
     </head>
   <body>
     <div class="container">
-      <div class="item">1.Top left</div>
-      <div class="item">2.Top center</div>
-      <div class="item">3.Top right</div>
-      <div class="item">4.Main</div>
-      <div class="item">5.Bottom</div>
+      <header>
+        <div id="weather">weather</div>
+        <div id="logo">logo</div>
+        <div id="datetime">datetime</div>
+      </header>
+      <main>
+        <a href="", style="color:white">main contents</a>
+      </main>
+      <footer>
+        <div id="newslogo">newslogo</div>
+        <div id="onelinenews"><a href="", style="color:blue">onelinenews</a></div>
+      </footer>
     </div>
   </body>
 </html>
