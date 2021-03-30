@@ -1,0 +1,84 @@
+*{
+  box-sizing: border-box; //width와 height 값을 border-box 크기에 맞춤
+}
+.container{
+  background-color: powderblue;
+  border: 2px solid gray;
+  padding: 10px;
+  width: 1024px; height: 768px;
+  /* 우선 1024*768에 맞춰보지만 향후 해상도의 변화를 고려해야 함 */
+  /* 한 가지 고정 해상도 갖는 Device에서 운용하는 경우와 여러 Device에서 표출하고 싶을 때를 고려해야 함  */
+  display: flex;
+  /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+  flex-direction: column;
+  /* 기본적으로 row */
+  }
+header{
+  background-color: yellow;
+  border: 2px solid white;
+  padding: 10px;
+  width: auto ; height: auto;
+  display: flex;
+  /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+  flex-direction: row;
+  /* 기본적으로 row */
+  flex-grow: 1;
+}
+header #weather, #logo, #clock{
+  text-align: center;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 2px;
+  width: auto ; height: auto;
+  /* flex-grow: 1; */
+}
+    header #weather{
+      flex-grow: 1;
+    }
+    header #logo{
+      flex-grow: 5;
+    }
+    header #clock{
+      flex-grow: 1;
+    }
+
+main{
+  background-image: url("hourglass.jpg");
+  background-repeat: no-repeat;
+  /* background-size:cover; */
+  background-size:100% 100%;
+  background-color: green;
+  border: 2px solid white;
+  padding: 10px;
+  width: auto ; height: auto;
+  flex-grow: 18;
+}
+
+footer{
+  text-align: left;
+  background-color: gray;
+  border: 2px solid white;
+  padding: 10px;
+  width: auto ; height: auto;
+  display: flex;
+  /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+  flex-direction: row;
+  /* 기본적으로 row */
+  flex-grow: 1;
+}
+footer #newslogo{
+  text-align: center;
+  background-color: white;
+  border: 1px solid red;
+  padding: 2px;
+  width: auto ; height: auto;
+  flex-grow: 1;
+}
+footer #onelinenews{
+  text-align: center;
+  background-color: white;
+  border: 1px solid red;
+  padding: 2px;
+  width: auto ; height: auto;
+  flex-grow: 11;
+}

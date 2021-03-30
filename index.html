@@ -6,93 +6,141 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial scale=1.0">
         <!-- 모바일 화면에서 최적화 -->
+
+      <!-- <link rel="stylesheet" href="style.css"> -->
+      <!-- <style>
+        @import url("style.css");
+      </style> -->
+
+      <!-- Error 발생
+      Request headers
+      Provisional headers are shown
+      Referer
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Whale/2.9.115.16 Safari/537.36 -->
+
+      <script type="text/javascript">
+        function showclock(){
+          var currentDate = new Date();
+          var clock = document.getElementById("clock");
+          var apm = currentDate.getHours();
+          if(apm<12){
+            apm="오전";
+            }
+            else{
+            apm="오후";
+            }
+            var msg = apm + " " + (currentDate.getHours()-12) + "시";
+            // var msg = "현재시간 : " + apm + (currentDate.getHours()-12) + "시";
+
+            msg += " " + currentDate.getMinutes() + "분";
+            // msg += currentDate.getSeconds() + "초";
+
+          clock.innerText=msg;
+
+          setTimeout(showclock,1000);
+          }
+      </script>
+
     <style>
-      .container{
-        background-color: powderblue;
-        border: 2px solid gray;
-        padding: 10px;
-        width: 1024px; height: 768px;
-        /* 우선 1024*768에 맞춰보지만 향후 해상도의 변화를 고려해야 함 */
-        /* 한 가지 고정 해상도 갖는 Device에서 운용하는 경우와 여러 Device에서 표출하고 싶을 때를 고려해야 함  */
-        display: flex;
-        /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
-        flex-direction: column;
-        /* 기본적으로 row */
+    *{
+      box-sizing: border-box; /* width와 height 값을 border-box 크기에 맞춤 */
+    }
+    .container{
+      background-color: powderblue;
+      border: 2px solid gray;
+      padding: 10px;
+      width: 1024px; height: 768px;
+      /* 우선 1024*768에 맞춰보지만 향후 해상도의 변화를 고려해야 함 */
+      /* 한 가지 고정 해상도 갖는 Device에서 운용하는 경우와 여러 Device에서 표출하고 싶을 때를 고려해야 함  */
+
+      display: flex; /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+      flex-direction: column; /* 기본적으로 row */
+      }
+    header{
+      background-color: yellow;
+      border: 2px solid white;
+      padding: 10px;
+      width: auto ; height: auto;
+
+      display: flex; /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+      flex-direction: row; /* 기본적으로 row */
+      flex-grow: 1;
+    }
+    header #weather, #logo, #clock{
+      text-align: center;
+      background-color: white;
+      border: 1px solid gray;
+      padding: 2px;
+      width: auto ; height: auto;
+      /* flex-grow: 1; */
+    }
+        header #weather{
+          flex-grow: 1;
         }
-      header{
-        background-color: yellow;
-        border: 2px solid white;
-        padding: 10px;
-        width: auto ; height: auto;
-        display: flex;
-        /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
-        flex-direction: row;
-        /* 기본적으로 row */
-        flex-grow: 3;
-      }
-      header #weather, #logo, #datetime{
-        text-align: center;
-        background-color: white;
-        border: 1px solid gray;
-        padding: 2px;
-        width: auto ; height: auto;
-        flex-grow: 1;
-      }
-      header #logo{
-        /* flex-basis: 100px; */
-        flex-grow: 3;
-      }
-      header #weather, #datetime{
-        /* flex-basis: 100px; */
-        flex-shrink: 0;
-      }
-      main{
-        background-color: green;
-        border: 2px solid white;
-        padding: 10px;
-        width: auto ; height: auto;
-        flex-grow: 16;
-      }
-      footer{
-        text-align: left;
-        background-color: gray;
-        border: 2px solid white;
-        padding: 10px;
-        width: auto ; height: auto;
-        display: flex;
-        /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
-        flex-direction: row;
-        /* 기본적으로 row */
-        flex-grow: 1;
-      }
-      footer #newslogo{
-        text-align: center;
-        background-color: white;
-        border: 1px solid red;
-        padding: 2px;
-        width: auto ; height: auto;
-        flex-grow: 1;
-      }
-      footer #onelinenews{
-        text-align: center;
-        background-color: white;
-        border: 1px solid red;
-        padding: 2px;
-        width: auto ; height: auto;
-        flex-grow: 10;
-      }
+        header #logo{
+          flex-grow: 5;
+        }
+        header #clock{
+          flex-grow: 1;
+        }
+
+    main{
+      background-image: url("hourglass.jpg");
+      background-repeat: no-repeat;
+      /* background-size:cover; */
+      background-size:100% 100%;
+      background-color: green;
+      border: 2px solid white;
+      padding: 10px;
+      width: auto ; height: auto;
+      flex-grow: 18;
+    }
+
+    footer{
+      text-align: left;
+      background-color: gray;
+      border: 2px solid white;
+      padding: 10px;
+      width: auto ; height: auto;
+      display: flex;
+      /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
+      flex-direction: row;
+      /* 기본적으로 row */
+      flex-grow: 1;
+    }
+    footer #newslogo{
+      text-align: center;
+      background-color: white;
+      border: 1px solid red;
+      padding: 2px;
+      width: auto ; height: auto;
+      flex-grow: 1;
+    }
+    footer #onelinenews{
+      text-align: center;
+      background-color: white;
+      border: 1px solid red;
+      padding: 2px;
+      width: auto ; height: auto;
+      flex-grow: 11;
+    }
     </style>
-    </head>
-  <body>
+  </head>
+
+  <body onload="showclock()">
     <div class="container">
+
       <header>
         <div id="weather">weather</div>
-        <div id="logo">logo</div>
-        <div id="datetime">datetime</div>
+        <div id="logo">
+          <img src="logo.png"></div>
+        <div id="clock" style="color:red"></div>
       </header>
-      <main>
-        <a href="", style="color:white">main contents</a>
+
+      <main id="main">
+        <!-- <img src="hourglass.jpg"></div> -->
       </main>
+
       <footer>
         <div id="newslogo">newslogo</div>
         <div id="onelinenews"><a href="https://www.mpartners.co.kr", style="color:blue">onelinenews</a></div>

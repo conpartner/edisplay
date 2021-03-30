@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- <meta charset="EUC-KR"> -->
-<meta charset="utf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-</script>
-<title>흘러가는 시계</title>
-<script type="text/javascript">
-    function showClock()
-    {
-        var currentDate=new Date();
-        var divClock=document.getElementById("divClock");
-        var apm=currentDate.getHours();
-        if(apm<12)
-        {
-            apm="오전";
+  <head>
+    <!-- <meta charset="EUC-KR"> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <!-- 모바일 화면에서 최적화 -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script> -->
+    <title>시계 표시</title>
+    <script type="text/javascript">
+      function showclock(){
+        var currentDate = new Date();
+        var clock = document.getElementById("clock");
+        var apm = currentDate.getHours();
+        if(apm<12){
+          apm="오전";
+          }
+          else{
+          apm="오후";
+          }
+        var msg = apm + " " + (currentDate.getHours()-12) + "시";
+        // var msg = "현재시간 : " + apm + (currentDate.getHours()-12) + "시";
+
+        msg += " " + currentDate.getMinutes() + "분";
+        // msg += currentDate.getSeconds() + "초";
+
+        clock.innerText=msg;
+
+        setTimeout(showclock,1000);
         }
-        else
-        {
-            apm="오후";
-        }
-
-        var msg = "현재시간 : "+apm +(currentDate.getHours()-12)+"시";
-        msg += currentDate.getMinutes() + "분";
-        msg += currentDate.getSeconds() + "초";
-
-        divClock.innerText=msg;
-
-        setTimeout(showClock,1000);
-    }
-</script>
-</head>
-<body onload="showClock()">
-    <div id="divClock" class="clock"></div>
-
-</body>
+    </script>
+  </head>
+  <body onload="showclock()">
+      <div id="clock" style="color:red"></div>
+  </body>
 </html>
