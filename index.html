@@ -11,7 +11,7 @@
       box-sizing: border-box;  /* width와 height 값을 border-box 크기에 맞춤 */
     }
     .container{
-      background-color: powderblue;
+      /* background-color: powderblue; */
       border: 2px solid gray;
       padding: 10px;
       width: 1024px; height: 768px;
@@ -22,35 +22,33 @@
       flex-direction: column; /* 기본적으로 row */
       }
     header{
-      background-image: url("TopArea.jpg");
-      background-repeat: no-repeat;
-      background-size:cover;
-
-      background-color: none;
-      border: 2px solid white;
-      padding: 10px;
+      /* background-image: url("TopArea.jpg"); */
+      /* background-repeat: no-repeat;
+      background-size:cover; */
+      font-size: 25px;
+      text-align: center;
+      /* vertical-align: bottom; // ?? 왜 안 먹지?? */
+      border: 2px solid gray;
       width: auto ; height: auto;
 
       display: flex; /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
       flex-direction: row; /* 기본적으로 row */
       flex-grow: 1;
-    }
-    header #weather, #logo, #clock{
-      text-align: center;
-      vertical-align: bottom; // ?? 왜 안 먹지??
-      background-color: white;
-      border: 1px solid gray;
-      padding: 2px;
-      width: auto ; height: auto;
       /* flex-grow: 1; */
     }
         header #weather{
+          border: 2px solid gray;
+          padding-top: 50px;
           flex-grow: 1;
         }
         header #logo{
-          flex-grow: 5;
+          border: 2px solid gray;
+          padding-top: 30px;
+          flex-grow: 1;
         }
         header #clock{
+          border: 2px solid gray;
+          padding-top: 35px;
           flex-grow: 1;
         }
 
@@ -60,23 +58,22 @@
       /* background-size:cover; */
       background-size:100% 100%;
       background-color: green;
-      border: 2px solid white;
+      border: 2px solid gray;
       padding: 10px;
       width: auto ; height: auto;
       flex-grow: 18;
+      flex-shrink: 0;
     }
-      main #rights{
+      main{
         color: green;
         font-size: 20px;
         text-align: right;
       }
 
     footer{
-      text-align: left;
       background-color: gray;
-      border: 2px solid white;
-      padding: 10px;
       width: auto ; height: auto;
+      font-size: 25px;
       display: flex;
       /* 반드시 부모 태그에게 display: flex; 값을 주고 시작해야 함 */
       flex-direction: row;
@@ -85,17 +82,19 @@
     }
     footer #newslogo{
       text-align: center;
+      border: 2px solid gray;
       background-color: white;
-      border: 1px solid red;
-      padding: 2px;
+      padding-top: 15px;
       width: auto ; height: auto;
       flex-grow: 1;
     }
     footer #onelinenews{
-      text-align: center;
+      text-align: left;
+      border: 2px solid gray;
       background-color: white;
-      border: 1px solid red;
-      padding: 2px;
+      border-left: 2px solid gray;
+      padding-top: 15px;
+      padding-left: 20px;
       width: auto ; height: auto;
       flex-grow: 11;
     }
@@ -104,24 +103,23 @@
 
   <body>
     <div class="container">
-
       <header>
-        <div id="weather">weather</div>
+        <div id="weather" style="color:orange">weather</div>
         <div id="logo"><img src="../display/img/logo.png"></div>
         <div id="clock" style="color:orange"></div>
       </header>
-
-      <main id="main">
-        <div id="rights">All Rights by Mparters Co. since 2001</div>
+      <main>
+        <div>All Rights by Mparters Co. since 2001</div>
       </main>
-
       <footer>
-        <div id="newslogo">newslogo</div>
+        <div id="newslogo">news logo</div>
         <div id="onelinenews"><a href="https://www.mpartners.co.kr", style="color:blue">onelinenews</a></div>
       </footer>
     </div>
-      <script type="text/javascript" src="../display/datetime/datetime.js">
-      </script>
+
+    <script type="text/javascript" src="../display/datetime/datetime.js">
+    </script>
+
   </body>
 </html>
 
